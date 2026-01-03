@@ -1,21 +1,68 @@
-# Terminal-Based To-Do List
+# NikoFlow — App Usage Tracker
 
-A simple Python terminal application to manage your daily tasks. This project allows you to **add, view, remove, and clear tasks** directly from the terminal.
+NikoFlow is a **desktop application usage tracker** built with **CustomTkinter** that monitors which applications you use, how long you use them, and presents the data in a clean, modern dashboard.
+
+It runs locally, stores data in JSON files, and provides both **real-time monitoring** and **historical usage breakdowns** — all without external analytics or cloud services.
+
+---
 
 ## Features
 
-- Add a task to your to-do list
-- View all tasks in the list
-- Remove a specific task by number
-- Clear all tasks
-- Exit the program
+### 🔴 Live App Tracking
+- Detects the **currently active application**
+- Tracks usage time **per second**
+- Automatically switches when you change windows
+- Pauses tracking during inactivity (idle detection)
 
-## How to Use
+### 📊 Real-Time Dashboard
+- Displays:
+  - Currently active app
+  - Top-used apps for today
+  - Visual progress bars per app
+- Updates automatically without freezing the UI
 
-1. Clone the repository or download `to-do-list.py`.
-2. Open a terminal and navigate to the folder containing `to-do-list.py`.
-3. Run the program:
+### 🕒 Daily Usage History
+- Tracks usage **per day**
+- Stores usage data by date
+- View total screen time for the **last 7 days**
+
+### 🗂 App Categories
+- Assign apps to categories such as:
+  - Coding
+  - Browsing
+  - Gaming
+- Categories are persisted in a configuration file
+
+### 💾 Persistent Local Storage
+- Usage data saved to JSON
+- Categories stored separately
+- Automatic periodic saving
+- Safe shutdown handling
+
+### 🧵 Background Tracking Engine
+- Usage tracking runs in a **background thread**
+- UI remains responsive at all times
+- Thread-safe data handling with locks
+
+---
+
+## Tech Stack
+
+- **Python**
+- **CustomTkinter** (modern UI)
+- **pygetwindow** (active window detection)
+- Python standard libraries:
+  - `json`
+  - `time`
+  - `threading`
+  - `datetime`
+  - `pathlib`
+
+---
+
+## Requirements
+
+Install the required dependencies before running the app:
 
 ```bash
-python to-do-list.py
-****
+pip install customtkinter pygetwindow
