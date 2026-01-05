@@ -1,57 +1,68 @@
-# Niko’s Process Monitor — Mini Task Manager
+# NikoFlow — App Usage Tracker
 
-A **hacker-style Mini Task Manager** built with **CustomTkinter** that displays running system processes in real time, allows searching and filtering, and supports terminating processes directly from the UI.
+NikoFlow is a **desktop application usage tracker** built with **CustomTkinter** that monitors which applications you use, how long you use them, and presents the data in a clean, modern dashboard.
 
-Designed to look minimal, fast, and terminal-inspired while demonstrating **OS interaction, threading, and real-time UI updates**.
+It runs locally, stores data in JSON files, and provides both **real-time monitoring** and **historical usage breakdowns** — all without external analytics or cloud services.
 
 ---
 
 ## Features
 
-### 🖥 Real-Time Process Monitoring
-- Displays currently running processes
-- Auto-refreshes every few seconds
-- Groups duplicate processes and aggregates memory usage
+### 🔴 Live App Tracking
+- Detects the **currently active application**
+- Tracks usage time **per second**
+- Automatically switches when you change windows
+- Pauses tracking during inactivity (idle detection)
 
-### 🔍 Live Search & Filtering
-- Instantly filter processes by name
-- Case-insensitive, real-time updates
+### 📊 Real-Time Dashboard
+- Displays:
+  - Currently active app
+  - Top-used apps for today
+  - Visual progress bars per app
+- Updates automatically without freezing the UI
 
-### 🧠 Memory Usage Tracking
-- Shows memory usage per process (MB)
-- Sorted by highest memory usage by default
+### 🕒 Daily Usage History
+- Tracks usage **per day**
+- Stores usage data by date
+- View total screen time for the **last 7 days**
 
-### 🧵 Background Processing
-- Process fetching runs in a background thread
+### 🗂 App Categories
+- Assign apps to categories such as:
+  - Coding
+  - Browsing
+  - Gaming
+- Categories are persisted in a configuration file
+
+### 💾 Persistent Local Storage
+- Usage data saved to JSON
+- Categories stored separately
+- Automatic periodic saving
+- Safe shutdown handling
+
+### 🧵 Background Tracking Engine
+- Usage tracking runs in a **background thread**
 - UI remains responsive at all times
-
-### 🖱 Context Menu Controls
-- Right-click any process to terminate it
-- Uses native system commands (`taskkill`)
-- Immediate effect with no UI freezing
-
-### 🧬 Hacker-Style UI
-- Neon green terminal aesthetic
-- Custom fonts with fallback handling
-- Scrollable process table
-- Fixed widget pool for performance
+- Thread-safe data handling with locks
 
 ---
 
 ## Tech Stack
 
 - **Python**
-- **CustomTkinter** (modern UI framework)
-- **Tkinter** (standard library)
-- **subprocess** (OS command execution)
-- **threading**
-- **time**
+- **CustomTkinter** (modern UI)
+- **pygetwindow** (active window detection)
+- Python standard libraries:
+  - `json`
+  - `time`
+  - `threading`
+  - `datetime`
+  - `pathlib`
 
 ---
 
 ## Requirements
 
-Install the required dependency before running:
+Install the required dependencies before running the app:
 
 ```bash
-pip install customtkinter
+pip install customtkinter pygetwindow
